@@ -171,7 +171,7 @@ export class AppComponent {
     });
   }
   CheckDay(day) {
-    if (day + this.d.getDay() > 6) {
+    if (day + this.d.getDay() > 7) {
       return day + this.d.getDay() - 7;
     } else {
       return day + this.d.getDay();
