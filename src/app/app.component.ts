@@ -7,16 +7,17 @@ import { HttpClient} from '@angular/common/http';
 })
 export class AppComponent  {
   name = 'Angular';
-  data: any;
-      zcode: any;
-      url = 'https://lp-store.herokuapp.com/weather?zipcode=';
-url1:any;
-ccond: any;
-temp: any;
-temp_max: any;
-temp_min: any;
-d = new Date();day1:any;mon1:any;date1:any;  day2:any;mon2:any;date2:any; day3:any;mon3:any;date3:any; 
-day4:any;mon4:any;date4:any; day5:any;mon5:any;date5:any; 
+  data:any;
+      zcode: number;
+      url = 'http://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=5a4b2d457ecbef9eb2a71e480b947604';
+      ccond: number;
+      temp: number;
+      temp_max: number;
+      temp_min: number;
+d = new Date();day1: string;mon1: string;date1: number;day2: string;mon2: string;
+date2: number;day3: string;mon3: string;date3: number;day4: string;mon4: string;
+date4: number;day5: string;mon5: string;
+date5: number;
 weekday = [" ","Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday",];
 month=["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
       constructor(private http: HttpClient) {}
@@ -26,7 +27,7 @@ month=["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec
         this.getData();
       }
       getData() {
-        this.http.get(this.url + this.zcode).subscribe((res) => {
+        this.http.get(this.url).subscribe((res) => {
           this.data = res;
           this.ccond = this.data.weather[0].main;
           this.temp = this.data.main.temp;
